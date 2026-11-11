@@ -1,1 +1,0 @@
-# anti-screamer-best-script
