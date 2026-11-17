@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Милые розовые фигурки ✨</title>
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #ffe0ec 0%, #ffc2d9 50%, #ff9ec4 100%);
+    font-family: 'Comic Sans MS', 'Segoe UI', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow-x: hidden;
+    padding: 30px 15px;
+  }
+
+  h1 {
+    color: #d6336c;
+    font-size: 2.4rem;
+    text-align: center;
+    margin-bottom: 30px;
+    text-shadow: 2px 2px 0 #fff, 4px 4px 8px rgba(214, 51, 108, 0.3);
+    animation: floatTitle 3s ease-in-out infinite;
+  }
+
+  @keyframes floatTitle {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+  }
+
+  .gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    justify-content: center;
+    align-items: flex-end;
+    max-width: 1000px;
+    padding: 20px;
+  }
+
+  .figure {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: bob 3s ease-in-out infinite;
+  }
+
+  .figure:nth-child(2) { animation-delay: 0.4s; }
+  .figure:nth-child(3) { animation-delay: 0.8s; }
+  .figure:nth-child(4) { animation-delay: 1.2s; }
+  .figure:nth-child(5) { animation-delay: 1.6s; }
+
+  @keyframes bob {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+  }
+
+  .figure span {
+    margin-top: 15px;
+    color: #a61e4d;
+    font-weight: bold;
+    font-size: 1rem;
+    background: rgba(255, 255, 255, 0.6);
+    padding: 4px 14px;
+    border-radius: 20px;
+  }
+
+  /* ===== КОТИК ===== */
+  .cat {
+    position: relative;
+    width: 110px;
+    height: 110px;
+    background: #ffb3d1;
+    border-radius: 50%;
+    box-shadow: inset -8px -8px 0 #ff9ec4, 0 8px 20px rgba(214, 51, 108, 0.35);
+  }
+  .cat::before, .cat::after {
+    content: '';
+    position: absolute;
+    top: -14px;
+    width: 0;
+    height: 0;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-bottom: 30px solid #ffb3d1;
+  }
+  .cat::before { left: 10px; transform: rotate(-10deg); }
+  .cat::after  { right: 10px; transform: rotate(10deg); }
+
+  .eyes {
+    position: absolute;
+    top: 40px;
+    left: 0; right: 0;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+  }
+  .eyes i {
+    display: block;
+    width: 14px;
+    height: 16px;
+    background: #6a1b3d;
+    border-radius: 50%;
+    animation: blink 4s infinite;
+  }
+  @keyframes blink {
+    0%, 92%, 100% { transform: scaleY(1); }
+    95% { transform: scaleY(0.1); }
+  }
+
+  .nose {
+    position: absolute;
+    top: 62px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 8px solid #e83e8c;
+  }
+
+  .whiskers {
+    position: absolute;
+    top: 72px;
+    left: 0; right: 0;
+  }
+  .whiskers::before, .whiskers::after {
+    content: '';
+    position: absolute;
+    width: 26px;
+    height: 2px;
+    background: #d6336c;
+    border-radius: 2px;
+  }
+  .whiskers::before { left: 8px; transform: rotate(10deg); }
+  .whiskers::after  { right: 8px; transform: rotate(-10deg); }
+
+  .blush {
+    position: absolute;
+    top: 58px;
+    width: 16px;
+    height: 10px;
+    background: #ff6fa5;
+    border-radius: 50%;
+    opacity: 0.7;
+  }
+  .blush.l { left: 12px; }
+  .blush.r { right: 12px; }
+
+  /* ===== ЗАЙЧИК ===== */
+  .bunny {
+    position: relative;
+    width: 100px;
+    height: 110px;
+    background: #ffc2d9;
+    border-radius: 50% 50% 45% 45%;
+    box-shadow: inset -6px -6px 0 #ffb3d1, 0 8px 20px rgba(214, 51, 108, 0.35);
+  }
+  .bunny::before, .bunny::after {
+    content: '';
+    position: absolute;
+    top: -55px;
+    width: 22px;
+    height: 60px;
+    background: #ffc2d9;
+    border-radius: 50%;
+    box-shadow: inset -3px -3px 0 #ffb3d1;
+  }
+  .bunny::before { left: 18px; transform: rotate(-12deg); }
+  .bunny::after  { right: 18px; transform: rotate(12deg); }
+
+  .bunny .eyes {
+    top: 45px;
+    gap: 26px;
+  }
+  .bunny .eyes i {
+    background: #6a1b3d;
+    width: 12px;
+    height: 14px;
+  }
+  .bunny .nose {
+    top: 65px;
+    border-top-color: #ff4d94;
+    border-left-width: 5px;
+    border-right-width: 5px;
+    border-top-width: 7px;
+  }
+  .bunny .blush {
+    top: 62px;
+  }
+
+  /* ===== ЗВЕЗДОЧКА ===== */
+  .star {
+    position: relative;
+    width: 0;
+    height: 0;
+    border-left: 55px solid transparent;
+    border-right: 55px solid transparent;
+    border-bottom: 95px solid #ff9ec4;
+    transform: rotate(35deg);
+    filter: drop-shadow(0 8px 15px rgba(214, 51, 108, 0.4));
+    margin-bottom: 10px;
+  }
+  .star::before {
+    content: '';
+    position: absolute;
+    top: 32px;
+    left: -55px;
+    width: 0;
+    height: 0;
+    border-left: 55px solid transparent;
+    border-right: 55px solid transparent;
+    border-bottom: 95px solid #ff9ec4;
+    transform: rotate(-70deg);
+  }
+  .star::after {
+    content: '';
+    position: absolute;
+    top: 32px;
+    left: -55px;
+    width: 0;
+    height: 0;
+    border-left: 55px solid transparent;
+    border-right: 55px solid transparent;
+    border-bottom: 95px solid #ff9ec4;
+    transform: rotate(-70deg);
+  }
+  .star-shine {
+    position: absolute;
+    top: -8px;
+    left: -10px;
+    color: #fff;
+    font-size: 22px;
+    transform: rotate(-35deg);
+    text-shadow: 0 0 10px #fff;
+    animation: twinkle 2s infinite;
+  }
+  @keyframes twinkle {
+    0%, 100% { opacity: 0.4; transform: rotate(-35deg) scale(0.8); }
+    50% { opacity: 1; transform: rotate(-35deg) scale(1.2); }
+  }
+
+  /* ===== СЕРДЕЧКО ===== */
+  .heart {
+    position: relative;
+    width: 100px;
+    height: 90px;
+    margin-bottom: 10px;
+  }
+  .heart::before, .heart::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 52px;
+    height: 80px;
+    background: #ff6fa5;
+    border-radius: 50px 50px 0 0;
+    box-shadow: 0 8px 20px rgba(214, 51, 108, 0.4);
+  }
+  .heart::before {
+    left: 50px;
+    transform: rotate(-45deg);
+    transform-origin: 0 100%;
+  }
+  .heart::after {
+    left: 0;
+    transform: rotate(45deg);
+    transform-origin: 100% 100%;
+  }
+
+  /* ===== ОБЛАЧКО ===== */
+  .cloud {
+    position: relative;
+    width: 120px;
+    height: 55px;
+    background: #ffd6e6;
+    border-radius: 50px;
+    box-shadow: 0 8px 20px rgba(214, 51, 108, 0.3);
+  }
+  .cloud::before, .cloud::after {
+    content: '';
+    position: absolute;
+    background: #ffd6e6;
+    border-radius: 50%;
+  }
+  .cloud::before {
+    width: 55px;
+    height: 55px;
+    top: -22px;
+    left: 15px;
+  }
+  .cloud::after {
+    width: 70px;
+    height: 70px;
+    top: -30px;
+    right: 15px;
+  }
+
+  .hearts-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 0;
+  }
+  .hearts-bg span {
+    position: absolute;
+    font-size: 22px;
+    color: #ff6fa5;
+    opacity: 0.5;
+    animation: rise linear infinite;
+  }
+  @keyframes rise {
+    0%   { transform: translateY(110vh) rotate(0deg); opacity: 0; }
+    10%  { opacity: 0.6; }
+    90%  { opacity: 0.6; }
+    100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
+  }
+
+  h1, .gallery { position: relative; z-index: 1; }
+</style>
+</head>
+<body>
+
+  <div class="hearts-bg" id="heartsBg"></div>
+
+  <h1>✧ Милые розовые фигурки ✧</h1>
+
+  <div class="gallery">
+
+    <div class="figure">
+      <div class="cat">
+        <div class="eyes"><i></i><i></i></div>
+        <div class="nose"></div>
+        <div class="blush l"></div>
+        <div class="blush r"></div>
+        <div class="whiskers"></div>
+      </div>
+      <span>Котик</span>
+    </div>
+
+    <div class="figure">
+      <div class="bunny">
+        <div class="eyes"><i></i><i></i></div>
+        <div class="nose"></div>
+        <div class="blush l"></div>
+        <div class="blush r"></div>
+      </div>
+      <span>Зайчик</span>
+    </div>
+
+    <div class="figure">
+      <div class="star">
+        <span class="star-shine">✦</span>
+      </div>
+      <span>Звёздочка</span>
+    </div>
+
+    <div class="figure">
+      <div class="heart"></div>
+      <span>Сердечко</span>
+    </div>
+
+    <div class="figure">
+      <div class="cloud"></div>
+      <span>Облачко</span>
+    </div>
+
+  </div>
+
+<script>
+  // Летающие сердечки на фоне
+  const bg = document.getElementById('heartsBg');
+  const emojis = ['♥', '♡', '❥', '🌸', '✿', '❀'];
+  for (let i = 0; i < 25; i++) {
+    const s = document.createElement('span');
+    s.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+    s.style.left = Math.random() * 100 + 'vw';
+    s.style.animationDuration = (8 + Math.random() * 10) + 's';
+    s.style.animationDelay = (Math.random() * 10) + 's';
+    s.style.fontSize = (14 + Math.random() * 20) + 'px';
+    bg.appendChild(s);
+  }
+</script>
+
+</body>
+</html>
